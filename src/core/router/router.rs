@@ -55,8 +55,8 @@ impl Index<usize> for Params {
 
 
 #[allow(dead_code)]
-pub struct Route<T> {
-    pub trees: BTreeMap<String, Node<T>>,
+pub struct Route {
+    pub trees: BTreeMap<String, Node>,
 
     // Enables automatic redirection if the current route can't be matched but a
     // handler for the path with (without) the trailing slash exists.
@@ -90,26 +90,26 @@ pub struct Route<T> {
 
     // Configurable handler which is called when no matching route is
     // found.
-    pub not_found: Option<T>,
+    pub not_found: Option<u16>,
 
     // Configurable handler which is called when a request
     // cannot be routed and HandleMethodNotAllowed is true.
     // The "Allow" header with allowed request methods is set before the handler
     // is called.
-    pub method_not_allowed: Option<T>,
+    pub method_not_allowed: Option<u16>,
 
     // Function to handle panics recovered from http handlers.
     // It should be used to generate a error page and return the http error code
     // 500 (Internal Server Error).
     // The handler can be used to keep your server from crashing because of
     // unrecovered panics.
-    pub panic_handler: Option<T>,
+    pub panic_handler: Option<u16>,
 }
 
-impl<T> Route<T> {
+impl Route {
     /// New returns a new initialized Router.
     /// Path auto-correction, including trailing slashes, is enabled by default.
-    pub fn new() -> Route<T> {
+    pub fn new() -> Route {
         Route {
             trees: BTreeMap::new(),
             redirect_trailing_slash: true,

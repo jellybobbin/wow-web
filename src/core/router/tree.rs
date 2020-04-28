@@ -55,14 +55,14 @@ pub enum NodeType {
 }
 
 #[derive(Debug, Clone)]
-pub struct Node<T> {
+pub struct Node {
     path: Vec<u8>,
     wild_child: bool,
     n_type: NodeType,
     max_params: u8,
     indices: Vec<u8>,
-    children: Vec<Box<Node<T>>>,
-    handle: Option<T>,
+    children: Vec<Box<Node>>,
+    handle: Option<Handler>,
     priority: u32,
 }
 
