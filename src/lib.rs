@@ -1,10 +1,10 @@
-#[cfg(test)]
-mod tests {
-    #[test]
-    fn it_works() {
-        assert_eq!(2 + 2, 4);
-    }
-}
-pub fn wow_web(){
+mod wow;
+use wow::Application;
 
+pub use http_types::Result;
+
+pub fn new()-> Application{
+    Application{
+        name:"init_name".to_owned()
+    }
 }
