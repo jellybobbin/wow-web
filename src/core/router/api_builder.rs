@@ -1,3 +1,6 @@
-struct APIBuilder{
+
+pub struct APIBuilder{
 
 }
+
+

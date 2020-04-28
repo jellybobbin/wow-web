@@ -2,12 +2,18 @@ use async_std::net::{TcpStream, TcpListener};
 use async_std::prelude::*;
 use async_std::task;
 use http_types::{Response, StatusCode, Request, Method};
+use crate::core::router::router::Route;
 
 pub struct Application{
-    pub name: String
+    pub router: Route
 }
 
 impl Application{
+    pub fn new()->Self{
+        Application{
+            router:Route::new()
+        }
+    }
     pub async fn run(&self) -> http_types::Result<()> {
         let listener = TcpListener::bind(("127.0.0.1", 8080)).await?;
         let addr = format!("http://{}", listener.local_addr()?);
