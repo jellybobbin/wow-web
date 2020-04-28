@@ -3,6 +3,8 @@ name = "wow-web"
 version = "0.1.0"
 authors = ["jelly <jellybobbin@gmail.com>"]
 edition = "2018"
+description = "Wow web is a simple, pragmatic and extremely fast web framework for Rust."
+license = "MIT/Apache-2.0"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
