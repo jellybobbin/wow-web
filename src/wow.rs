@@ -2,16 +2,16 @@ use async_std::net::{TcpStream, TcpListener};
 use async_std::prelude::*;
 use async_std::task;
 use http_types::{Response, StatusCode, Request, Method};
-use crate::core::router::router::Route;
+//use crate::core::router::router::Route;
 
 pub struct Application{
-    pub router: Route
+    //pub router: Route
 }
 
 impl Application{
     pub fn new()->Self{
         Application{
-            router:Route::new()
+           // router:Route::new()
         }
     }
     pub async fn run(&self) -> http_types::Result<()> {
